@@ -1,4 +1,12 @@
+<?php
+session_start();
+$nombre_user = $_SESSION['usuario'];
 
+//Si el usuario ha iniciado sesión
+//Cargamos todos sus datos
+if(isset($_SESSION['usuario'])){
+
+?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -9,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#"><?php echo $nombre_user; ?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -24,12 +32,10 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+//Si no lo ha hecho, vuelta al index
+}
+else {
+    header("Location: index.php");
+}
+?>

@@ -6,5 +6,4 @@ function conectaBBDD(){
     $conexion_mysql -> query("SET NAMES UTF-8");
     return $conexion_mysql;
 }
-
 ?>
